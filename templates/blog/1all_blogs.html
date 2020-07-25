@@ -1,0 +1,27 @@
+{% extends 'portofolio/base.html' %}
+
+{% block content %}
+Hello blog
+
+<h2>{{ blogs.count }} Random article{{ blogs.count|pluralize }} from random mind</h2>
+
+{% for blog in blogs %}
+
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+<h5>{{ blog.date|date:'M d Y'|upper }}</h5>
+<p>{{ blog.description|striptags|truncatechars:100 }}</p>
+
+{% endfor %}
+
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
